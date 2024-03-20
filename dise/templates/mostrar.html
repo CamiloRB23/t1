@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página con Botón e Imagen</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+
+  button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+
+  img {
+    max-width: 720px; /* Ancho máximo de la imagen */
+    max-height: 480px; /* Altura máxima de la imagen */
+    height: auto; /* Altura se ajustará automáticamente para mantener la relación de aspecto */
+    display: none; /* Ocultar la imagen inicialmente */
+}
+
+</style>
+</head>
+<body>
+
+<button id="mostrarImagenBtn">Mostrar Imagen</button>
+<img id="imagen" style="display: none;">
+
+{% load static %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('mostrarImagenBtn').addEventListener('click', function() {
+        document.getElementById('imagen').src = "{% static 'moto.jpg' %}";
+        document.getElementById('imagen').style.display = 'block';
+    });
+});
+</script>
+
+</body>
+</html>
